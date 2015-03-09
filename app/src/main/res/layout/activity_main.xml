@@ -27,7 +27,6 @@
         android:textSize="@dimen/abc_action_bar_default_height_material"
         />-->
 
-
 </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

@@ -10,6 +10,7 @@
     <string-array name="drawer_content">
         <item>Home</item>
         <item>Search</item>
+        <item>Favorites</item>
         <item>Dinner</item>
         <item>Dessert</item>
         <item>Entertaining</item>

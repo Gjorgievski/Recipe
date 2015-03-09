@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
     private ActionBarDrawerToggle toggle;
 
     private String[] categories;
-    private int[] icons={R.drawable.ic_home,R.drawable.ic_action,R.drawable.ic_dinner,R.drawable.ic_dessert,R.drawable.ic_entertaining,R.drawable.ic_healthy,R.drawable.ic_shopping};
+    private int[] icons={R.drawable.ic_home,R.drawable.ic_action,R.drawable.ic_favorite,R.drawable.ic_dinner,R.drawable.ic_dessert,R.drawable.ic_entertaining,R.drawable.ic_healthy,R.drawable.ic_shopping};
 
 
     @Override
