@@ -1,6 +1,21 @@
 <resources>
-    <string name="app_name">Recipe</string>
+    <string name="app_name">Recipes</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_open">Open</string>
+    <string name="action_close">Close</string>
+
+    <string-array name="drawer_content">
+        <item>Home</item>
+        <item>Search</item>
+        <item>Favorites</item>
+        <item>Dinner</item>
+        <item>Dessert</item>
+        <item>Entertaining</item>
+        <item>Healthy</item>
+        <item>Shopping Cart</item>
+    </string-array>
+
 </resources>
