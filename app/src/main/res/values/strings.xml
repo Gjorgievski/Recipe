@@ -7,6 +7,13 @@
     <string name="action_open">Open</string>
     <string name="action_close">Close</string>
 
+    <string name="category_dinner">Dinner</string>
+    <string name="category_dessert">Dessert</string>
+    <string name="category_entertaining">Entertaining</string>
+    <string name="category_healthy">Healthy</string>
+
+    <string name="more">MORE</string>
+
     <string-array name="drawer_content">
         <item>Home</item>
         <item>Search</item>

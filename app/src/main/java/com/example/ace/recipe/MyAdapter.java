@@ -28,8 +28,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         TextView textView;
         ImageView imageView;
 
-
-
         public ViewHolder(View itemView,int ViewType) { // Creating ViewHolder Constructor with View and viewType As a parameter
             super(itemView);
 
