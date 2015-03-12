@@ -26,7 +26,11 @@
         android:textAllCaps="true"
         android:textSize="@dimen/abc_action_bar_default_height_material"
         />-->
-
+        <FrameLayout
+            android:id="@+id/tblLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/tool_bar"></FrameLayout>
 </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

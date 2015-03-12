@@ -1,5 +1,8 @@
 package com.example.ace.recipe;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,12 +11,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.example.ace.recipe.fragments.HomeFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -44,30 +51,73 @@ public class MainActivity extends ActionBarActivity {
         recAdapter=new MyAdapter(categories,icons);
 
         recView.setAdapter(recAdapter);
+
+        //DRAWER CATEGORY SELECTION HANDLING
+        final GestureDetector mGestureDetector = new GestureDetector(MainActivity.this, new GestureDetector.SimpleOnGestureListener() {
+
+            @Override public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+
+        });
+
+        recView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+                View child = recyclerView.findChildViewUnder(motionEvent.getX(),motionEvent.getY());
+
+                if(child!=null && mGestureDetector.onTouchEvent(motionEvent)){
+                    drawerLayout.closeDrawers();
+                    switch (recyclerView.getChildPosition(child)){
+                        case 1: getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Home</font>"));
+                            loadHome(); break;
+                        case 2:break;
+                        case 3:break;
+                        case 4:break;
+                        case 5:break;
+                        case 6:break;
+                        case 7:break;
+                        case 8:break;
+                        default:Toast.makeText(MainActivity.this,"Oops something went wrong! Select once again.",Toast.LENGTH_SHORT).show();  break;
+                    }
+
+                    return true;
+
+                }
+
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            }
+        });
+
         recLayout=new LinearLayoutManager(this);
         recView.setLayoutManager(recLayout);
 
         drawerLayout = (DrawerLayout)findViewById(R.id.DrawerLayout);
-        toggle=new ActionBarDrawerToggle(this,drawerLayout,R.string.action_open,R.string.action_close) {
+        toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.action_open,R.string.action_close) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                // code here will execute once the drawer is opened( As I dont want anything happened when drawer is
-                // open I am not going to put anything here)
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                // Code here will execute once drawer is closed
             }
-                };
+        };
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
 
         //getSupportActionBar().setHomeButtonEnabled(true);
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
+        //BY DEFAULT WE LOAD THE HOME FRAGMENT
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Home</font>"));
+        loadHome();
     }
 
 
@@ -92,5 +142,14 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //MY FUNCTIONS
+    public void loadHome(){
+        HomeFragment fragment=new HomeFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.tblLayout, fragment);
+        ft.commit();
     }
 }
