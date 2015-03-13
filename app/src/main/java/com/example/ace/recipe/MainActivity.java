@@ -89,7 +89,9 @@ public class MainActivity extends ActionBarActivity {
                         }
                         case 5:{
                             CategoryFragment fragment = new CategoryFragment();
-
+                            Bundle arguments = new Bundle();
+                            arguments.putString("category","dessert");
+                            fragment.setArguments(arguments);
                             FragmentManager fragmentManager = getFragmentManager();
                             fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
                             getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Dessert</font>"));
@@ -97,6 +99,9 @@ public class MainActivity extends ActionBarActivity {
                         }
                         case 6:{
                             CategoryFragment fragment = new CategoryFragment();
+                            Bundle arguments = new Bundle();
+                            arguments.putString("category","entertaining");
+                            fragment.setArguments(arguments);
                             FragmentManager fragmentManager = getFragmentManager();
                             fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
                             getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Entertaining</font>"));
@@ -104,6 +109,9 @@ public class MainActivity extends ActionBarActivity {
                         }
                         case 7:{
                             CategoryFragment fragment = new CategoryFragment();
+                            Bundle arguments = new Bundle();
+                            arguments.putString("category","healty");
+                            fragment.setArguments(arguments);
                             FragmentManager fragmentManager = getFragmentManager();
                             fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
                             getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Healty</font>"));
