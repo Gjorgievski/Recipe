@@ -1,5 +1,6 @@
 package com.example.ace.recipe;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -29,16 +30,16 @@ public class MainActivity extends ActionBarActivity {
     private RecyclerView.Adapter recAdapter;
     private RecyclerView.LayoutManager recLayout;
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle toggle;
+        private ActionBarDrawerToggle toggle;
 
-    private String[] categories;
-    private int[] icons={R.drawable.ic_home,R.drawable.ic_action,R.drawable.ic_favorite,R.drawable.ic_dinner,R.drawable.ic_dessert,R.drawable.ic_entertaining,R.drawable.ic_healthy,R.drawable.ic_shopping};
+        private String[] categories;
+        private int[] icons={R.drawable.ic_home,R.drawable.ic_action,R.drawable.ic_favorite,R.drawable.ic_dinner,R.drawable.ic_dessert,R.drawable.ic_entertaining,R.drawable.ic_healthy,R.drawable.ic_shopping};
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);//setting the new action bar that will be used throughout the app
@@ -69,14 +70,45 @@ public class MainActivity extends ActionBarActivity {
                 if(child!=null && mGestureDetector.onTouchEvent(motionEvent)){
                     drawerLayout.closeDrawers();
                     switch (recyclerView.getChildPosition(child)){
-                        case 1: getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Home</font>"));
-                            loadHome(); break;
+                        case 1: {
+                            getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Home</font>"));
+                            loadHome();
+                            break;
+                        }
                         case 2:break;
                         case 3:break;
-                        case 4:break;
-                        case 5:break;
-                        case 6:break;
-                        case 7:break;
+                        case 4: {
+                            CategoryFragment fragment = new CategoryFragment();
+                            Bundle arguments = new Bundle();
+                            arguments.putString("category","dinner");
+                            fragment.setArguments(arguments);
+                            FragmentManager fragmentManager = getFragmentManager();
+                            fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
+                            getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Dinner</font>"));
+                            break;
+                        }
+                        case 5:{
+                            CategoryFragment fragment = new CategoryFragment();
+
+                            FragmentManager fragmentManager = getFragmentManager();
+                            fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
+                            getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Dessert</font>"));
+                            break;
+                        }
+                        case 6:{
+                            CategoryFragment fragment = new CategoryFragment();
+                            FragmentManager fragmentManager = getFragmentManager();
+                            fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
+                            getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Entertaining</font>"));
+                            break;
+                        }
+                        case 7:{
+                            CategoryFragment fragment = new CategoryFragment();
+                            FragmentManager fragmentManager = getFragmentManager();
+                            fragmentManager.beginTransaction().replace(R.id.tblLayout, fragment).commit();
+                            getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Healty</font>"));
+                            break;
+                        }
                         case 8:break;
                         default:Toast.makeText(MainActivity.this,"Oops something went wrong! Select once again.",Toast.LENGTH_SHORT).show();  break;
                     }
