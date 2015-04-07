@@ -192,6 +192,50 @@ public class MainActivity extends ActionBarActivity {
         ft.replace(R.id.tblLayout, fragment);
         ft.commit();
     }
+    public void showDinner(View v){
+        CategoryFragment cf=new CategoryFragment();
+        Bundle args=new Bundle();
+        args.putString("category","dinner");
+        cf.setArguments(args);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.tblLayout, cf);
+        ft.commit();
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Dinner</font>"));
+    }
+    public void showDessert(View v){
+        CategoryFragment cf=new CategoryFragment();
+        Bundle args=new Bundle();
+        args.putString("category","dessert");
+        cf.setArguments(args);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.tblLayout, cf);
+        ft.commit();
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Dessert</font>"));
+    }
+    public void showEnter(View v){
+        CategoryFragment cf=new CategoryFragment();
+        Bundle args=new Bundle();
+        args.putString("category","entertaining");
+        cf.setArguments(args);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.tblLayout, cf);
+        ft.commit();
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Entertaining</font>"));
+    }
+    public void showHealthy(View v){
+        CategoryFragment cf=new CategoryFragment();
+        Bundle args=new Bundle();
+        args.putString("category","healty");
+        cf.setArguments(args);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.tblLayout, cf);
+        ft.commit();
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Healthy</font>"));
+    }
 }
 
 //ace

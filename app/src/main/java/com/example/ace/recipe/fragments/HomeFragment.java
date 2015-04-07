@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.ace.recipe.MainActivity;
 import com.example.ace.recipe.R;
 
 /**
@@ -30,6 +32,7 @@ public class HomeFragment extends Fragment {
     int[] dessertPics={R.drawable.dessert1,R.drawable.dessert2,R.drawable.dessert3};
     int[] enterPics={R.drawable.enter1,R.drawable.enter2,R.drawable.enter3};
     int[] healthyPics={R.drawable.healthy1,R.drawable.healthy2,R.drawable.healthy3};
+    int padding=3;
 
     @Nullable
     @Override
@@ -46,25 +49,25 @@ public class HomeFragment extends Fragment {
             ImageView picture=new ImageView(getActivity().getBaseContext());
             picture.setAdjustViewBounds(true);
             picture.setImageResource(dinnerPics[i]);
-            picture.setPadding(5,5,5,5);
+            picture.setPadding(padding,padding,padding,padding);
             dinner.addView(picture);
 
             ImageView picture2=new ImageView(getActivity().getBaseContext());
             picture2.setAdjustViewBounds(true);
             picture2.setImageResource(dessertPics[i]);
-            picture2.setPadding(5,5,5,5);
+            picture2.setPadding(padding,padding,padding,padding);
             dessert.addView(picture2);
 
             ImageView picture3=new ImageView(getActivity().getBaseContext());
             picture3.setAdjustViewBounds(true);
             picture3.setImageResource(enterPics[i]);
-            picture3.setPadding(5,5,5,5);
+            picture3.setPadding(padding,padding,padding,padding);
             enter.addView(picture3);
 
             ImageView picture4=new ImageView(getActivity().getBaseContext());
             picture4.setAdjustViewBounds(true);
             picture4.setImageResource(healthyPics[i]);
-            picture4.setPadding(5,5,5,5);
+            picture4.setPadding(padding,padding,padding,padding);
             healthy.addView(picture4);
         }
 
