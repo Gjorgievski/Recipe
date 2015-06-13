@@ -2,11 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ace.recipe" >
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/hot_food_red"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <provider
+            android:authorities="com.example.ace.recipe.shoppingCart.shoppingCart.contentProvider"
+            android:name="com.example.ace.recipe.shoppingCart.shoppingCart.contentProvider.ShoppingCartContentProvider"
+            android:exported="true">
+
+        </provider>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

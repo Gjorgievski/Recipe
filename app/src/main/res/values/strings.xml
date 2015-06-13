@@ -12,6 +12,13 @@
     <string name="category_entertaining">Entertaining</string>
     <string name="category_healthy">Healthy</string>
 
+    <!-- Shopping cart -->
+    <string name="item_name">Name:</string>
+    <string name="item_quantity">Quantity:</string>
+    <string name="shopping_cart_title">Shopping cart</string>
+    <string name="btn_add_item_text">Add</string>
+    <string name="btn_cancel_item">Cancel</string>
+
     <string name="more">MORE</string>
 
     <string-array name="drawer_content">
